@@ -1,8 +1,4 @@
 package bts.sio.api.service;
-import bts.sio.api.model.Athlete;
-import bts.sio.api.model.Pays;
-import bts.sio.api.repository.AthleteRepository;
-import bts.sio.api.repository.PaysRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +15,13 @@ public class SportService {
         return SportRepository.findById(id);
     }
 
-    public Iterable<Sport> getLesSport() {
+    public Iterable<Sport> getLesSports() {
         return SportRepository.findAll();
+    }
+    public void deleteSport(final Long id) {
+        SportRepository.deleteById(id);
+    }
+    public Sport saveSport(Sport sport) {
+        return SportRepository.save(sport);
     }
 }
