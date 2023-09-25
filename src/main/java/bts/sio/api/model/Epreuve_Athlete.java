@@ -14,11 +14,11 @@ public class Epreuve_Athlete {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "Epreuve_id")
+    @JoinColumn(name = "epreuve_id")
     private Epreuve epreuve_id;
 
     @ManyToOne
-    @JoinColumn(name = "Athlete_id")
+    @JoinColumn(name = "athlete_id")
     private Athlete Athlete_id;
 
     @Column(name="place")

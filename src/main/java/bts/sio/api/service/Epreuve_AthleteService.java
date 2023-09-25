@@ -23,7 +23,7 @@ public class Epreuve_AthleteService {
         Epreuve_AthleteRepository.deleteById(id);
     }
 
-    public Epreuve_Athlete saveSport(Epreuve_Athlete Epreuve_Athlete) {
+    public Epreuve_Athlete saveEpreuve_Athlete(Epreuve_Athlete Epreuve_Athlete) {
         return Epreuve_AthleteRepository.save(Epreuve_Athlete);
     }
 }

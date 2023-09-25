@@ -15,7 +15,7 @@ public class EpreuveService {
         return EpreuveRepository.findById(id);
     }
 
-    public Iterable<Epreuve> getLesEpreuve() {
+    public Iterable<Epreuve> getLesEpreuves() {
         return EpreuveRepository.findAll();
     }
 
@@ -23,7 +23,7 @@ public class EpreuveService {
         EpreuveRepository.deleteById(id);
     }
 
-    public Epreuve saveSport(Epreuve epreuve) {
+    public Epreuve saveEpreuve(Epreuve epreuve) {
         return EpreuveRepository.save(epreuve);
     }
 }
