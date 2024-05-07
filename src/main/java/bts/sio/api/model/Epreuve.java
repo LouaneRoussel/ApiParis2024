@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+
 @Data
 @Entity
 @Table(name = "epreuve")
@@ -12,14 +13,14 @@ public class Epreuve {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nom")
-    private String nom;
+    @Column(name="libelle")
+    private String libelle;
 
-    @Column(name="type")
-    private String type;
+    @Column(name = "date_debut")
+    private LocalDate dateDebut;
 
-    @Column(name="description")
-    private String description;
+    @Column(name = "date_fin")
+    private LocalDate dateFin;
 
     @ManyToOne
     @JoinColumn(name = "sport_id")

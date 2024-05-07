@@ -1,8 +1,6 @@
 package bts.sio.api.controller;
 
-import bts.sio.api.model.Athlete;
 import bts.sio.api.model.Pays;
-import bts.sio.api.service.AthleteService;
 import bts.sio.api.service.PaysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

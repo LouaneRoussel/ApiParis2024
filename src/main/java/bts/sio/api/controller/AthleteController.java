@@ -1,10 +1,11 @@
 package bts.sio.api.controller;
 
 import bts.sio.api.model.Athlete;
+import bts.sio.api.model.Pays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import bts.sio.api.service.AthleteService;
-
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -18,6 +19,8 @@ public class AthleteController {
      * @param athlete An object athlete
      * @return The athlete object saved
      */
+
+    @CrossOrigin(origins = "*")
     @PostMapping("/athlete")
     public Athlete createAthlete(@RequestBody Athlete athlete) {
         return athleteService.saveAthlete(athlete);
@@ -29,6 +32,7 @@ public class AthleteController {
      * @param id The id of the athlete
      * @return An Athlete object full filled
      */
+
     @GetMapping("/athlete/{id}")
     public Athlete getAthlete(@PathVariable("id") final Long id) {
         Optional<Athlete> athlete = athleteService.getAthlete(id);
@@ -54,6 +58,7 @@ public class AthleteController {
      * @param athlete - The athlete object updated
      * @return
      */
+
     @PutMapping("/athlete/{id}")
     public Athlete updateAthlete(@PathVariable("id") final Long id, @RequestBody Athlete athlete) {
         Optional<Athlete> e = athleteService.getAthlete(id);
@@ -69,6 +74,16 @@ public class AthleteController {
                 currentAthlete.setPrenom(prenom);;
             }
 
+            LocalDate dateNaissance = athlete.getDateNaissance();
+            if(dateNaissance != null){
+                currentAthlete.setDateNaissance(dateNaissance);
+            }
+
+            Pays pays = athlete.getPays();
+            if(pays != null) {
+                currentAthlete.setPays(pays);;
+            }
+
             athleteService.saveAthlete(currentAthlete);
             return currentAthlete;
         } else {
@@ -81,9 +96,16 @@ public class AthleteController {
      * Delete - Delete an athlete
      * @param id - The id of the athlete to delete
      */
-    @DeleteMapping("/athlete/{id}")
+
+    @DeleteMapping("/athlete/delete/{id}")
+    @CrossOrigin(origins = "*")
     public void deleteAthlete(@PathVariable("id") final Long id) {
         athleteService.deleteAthlete(id);
+    }
+
+    @GetMapping("/athletes/{recherche}")
+    public Iterable getAthletesByRecherche(@PathVariable("recherche") final String recherche) {
+        return athleteService.getAthletesByRecherche(recherche);
     }
 
 }

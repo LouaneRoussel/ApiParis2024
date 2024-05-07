@@ -9,21 +9,21 @@ import bts.sio.api.repository.EpreuveRepository;
 @Service
 public class EpreuveService {
     @Autowired
-    private EpreuveRepository EpreuveRepository;
+    private EpreuveRepository epreuveRepository;
 
     public Optional<Epreuve> getEpreuve(final Long id) {
-        return EpreuveRepository.findById(id);
+        return epreuveRepository.findById(id);
     }
 
-    public Iterable<Epreuve> getLesEpreuves() {
-        return EpreuveRepository.findAll();
+    public Iterable<Epreuve> getEpreuves() {
+        return epreuveRepository.findAll();
     }
 
     public void deleteEpreuve(final Long id) {
-        EpreuveRepository.deleteById(id);
+        epreuveRepository.deleteById(id);
     }
 
     public Epreuve saveEpreuve(Epreuve epreuve) {
-        return EpreuveRepository.save(epreuve);
+        return epreuveRepository.save(epreuve);
     }
 }

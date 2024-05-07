@@ -14,10 +14,12 @@ public class AthleteService {
     private AthleteRepository athleteRepository;
 
     public Optional<Athlete> getAthlete(final Long id) {
+
         return athleteRepository.findById(id);
     }
 
     public Iterable<Athlete> getAthletes() {
+
         return athleteRepository.findAll();
     }
 
@@ -28,5 +30,10 @@ public class AthleteService {
     public Athlete saveAthlete(Athlete athlete) {
         Athlete savedAthlete = athleteRepository.save(athlete);
         return savedAthlete;
+    }
+
+    public Iterable getAthletesByRecherche(String recherche) {
+        return athleteRepository.findByRecherche(recherche);
+
     }
 }

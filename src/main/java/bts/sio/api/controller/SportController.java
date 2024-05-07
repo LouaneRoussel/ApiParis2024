@@ -1,10 +1,6 @@
 package bts.sio.api.controller;
-import bts.sio.api.model.Athlete;
-import bts.sio.api.model.Pays;
 import bts.sio.api.model.Sport;
 import bts.sio.api.service.SportService;
-import bts.sio.api.service.AthleteService;
-import bts.sio.api.service.PaysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import bts.sio.api.model.Olympiade;
@@ -43,6 +39,10 @@ public class SportController {
             String descriptif = sport.getDescriptif();
             if(descriptif != null) {
                 currentsport.setDescriptif(descriptif);;
+            }
+            String nomImage = sport.getNomImage();
+            if(nomImage != null){
+                currentsport.setNomImage(nomImage);
             }
             Olympiade olympiade = sport.getOlympiade();
             if(olympiade != null) {

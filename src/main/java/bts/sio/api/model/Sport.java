@@ -17,6 +17,8 @@ public class Sport {
     @Column(name="descriptif")
     private String descriptif;
 
+    @Column(name = "nomImage")
+    private String nomImage;
 
     @ManyToOne
     @JoinColumn(name = "olympiade_id")
